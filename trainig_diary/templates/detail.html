@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block header %}
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-4">過去にあなたが達成したこと</h1>
+    <p class="lead">あなたの過去の記録です．とても素晴らしいですね．</p>
+  </div>
+</div>
+{% endblock header %}
+
+{% block content %}
+<div class="container">
+  <div class="alert alert-success" role="alert">
+    <p>種目: {{ object.train_name }}</p>
+    <p>重量: {{ object.weight }} kg </p>
+    <p>回数: {{ object.raise_times }}</p>
+    <p>セット数: {{ object.set_times }}</p>
+    <p>日付: {{ object.date }}</p>
+    <p>メモ: {{ object.memo }}</p>
+  </div>
+</div>
+{% endblock content %}

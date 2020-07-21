@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-3">Good Work!</h1>
+    <p class="lead">ワークアウトを記録しましょう</p>
+  </div>
+</div>
+
+
+<div class="container">
+  <form action="" method="POST">{% csrf_token  %}
+    {{ form.as_p }}
+  <input type="submit" value="記録する">
+  </form>
+</div>
+
+
+{% endblock content %}
