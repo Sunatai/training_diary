@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 
 {% block content %}
+
 <div class="jumbotron jumbotron-fluid">
   <div class="container">
     <h1 class="display-3">Good Work!</h1>
@@ -11,10 +12,30 @@
 
 <div class="container">
   <form action="" method="POST">{% csrf_token  %}
-    {{ form.as_p }}
+    <!-- {{ form.as_p }} -->
+
+     <p><label for="id_body_part">Body part:</label> <select name="body_part" required id="id_body_part">
+     <option value="" selected>---------</option>
+
+     <option value="warning">胸</option>
+
+     <option value="primary">背中</option>
+
+     <option value="success">足</option>
+
+    </select></p>
+    <p><label for="id_train_name">Train name:</label> <input type="text" name="train_name" maxlength="100" required id="id_train_name"></p>
+    <p><label for="id_weight">Weight:</label> <input type="number" name="weight" required id="id_weight"></p>
+    <p><label for="id_raise_times">Raise times:</label> <input type="number" name="raise_times" required id="id_raise_times"></p>
+    <p><label for="id_set_times">Set times:</label> <input type="number" name="set_times" required id="id_set_times"></p>
+    <p><label for="id_date">Date:</label> <input type="text" name="date" required id="datepicker"></p>
+    <p><label for="id_memo">Memo:</label> <textarea name="memo" cols="40" rows="10" required id="id_memo"></textarea></p>
   <input type="submit" value="記録する">
   </form>
 </div>
 
+<!--
+<p>Date: <input type="text" id="datepicker"></p>
+-->
 
 {% endblock content %}

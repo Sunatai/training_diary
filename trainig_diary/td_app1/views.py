@@ -29,3 +29,10 @@ class DiaryUpdate(UpdateView):
     model = TrainingDiaryModel
     fields = ('body_part','train_name','weight','raise_times','set_times','date','memo')
     success_url = reverse_lazy('list')
+
+class DiaryTest(ListView):
+    template_name = 'test.html'
+    model = TrainingDiaryModel
+
+
+    
