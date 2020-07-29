@@ -5,13 +5,24 @@
   <div class="container">
     <h1 class="display-4">Training Diary</h1>
     <p class="lead">トレーニングを記録して，ベストを更新し続けましょう</p>
+    <p>{{plot_html}}</p>
   </div>
 </div>
 {% endblock header %}
 
+
 {% block content %}
+
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  <p>{{ message }}</p>
+  <p>kojohihiuhpihio</p>
+</div>
+
+
 <div class="container">
     <p><a href="{% url 'create' %}" class="btn btn-outline-primary" tabindex="-1" role="button" aria-disabled="true">トレーニングを追加</a>
+      </p>
+    <p><a  href="{% url 'graph' %}" class="btn btn-outline-primary" tabindex="-1" role="button" aria-disabled="true">グラフ表示</a>
       </p>
 
 
@@ -24,4 +35,5 @@
 </div>
 {% endfor %}
 </div>
+
 {% endblock content %}
