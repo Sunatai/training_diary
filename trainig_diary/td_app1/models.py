@@ -14,6 +14,7 @@ class TrainingDiaryModel(models.Model):
     raise_times = models.IntegerField() #回数
     set_times = models.IntegerField() #セット数
     date = models.DateField() #日付
-    memo = models.TextField() #メモ
+    memo = models.TextField(blank=True, null=True, default='') #メモ
+    author = models.CharField(max_length=100, null=True, default='')
     def __str__(self):
         return self.body_part
