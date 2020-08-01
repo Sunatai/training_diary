@@ -3,7 +3,7 @@ from .views import DiaryList, DiaryDetail, DiaryCreate, DiaryDelete, DiaryUpdate
 from . import views
 
 urlpatterns = [
-    path('template/', views.hello_template, name='graph'),
+    path('template/', hello_template, name='graph'),
     path('', listfunc, name='list'),
     path('detail/<int:pk>', DiaryDetail.as_view(), name='detail'),
     path('create/', DiaryCreate.as_view(), name='create'),
