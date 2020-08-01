@@ -27,7 +27,7 @@ class DiaryDetail(DetailView):
 class DiaryCreate(CreateView):
     template_name = 'create.html'
     model = TrainingDiaryModel
-    fields = ('body_part','train_name','weight','raise_times','set_times','date','memo', 'author')
+    fields = ('body_part','train_name','weight','raise_times','set_times','date','memo', 'author','memo1')
     success_url = reverse_lazy('list')
 
 class DiaryDelete(DeleteView):
@@ -38,7 +38,7 @@ class DiaryDelete(DeleteView):
 class DiaryUpdate(UpdateView):
     template_name = 'update.html'
     model = TrainingDiaryModel
-    fields = ('body_part','train_name','weight','raise_times','set_times','date','memo')
+    fields = ('body_part','train_name','weight','raise_times','set_times','date','memo','author','memo1')
     success_url = reverse_lazy('list')
 
 class DiaryTest(ListView):

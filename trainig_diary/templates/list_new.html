@@ -16,6 +16,8 @@
 <div class="container">
     <p><a href="{% url 'create' %}" class="btn btn-outline-primary" tabindex="-1" role="button" aria-disabled="true">トレーニングを追加</a>
       </p>
+    <p><a href="{% url 'graph' %}" class="btn btn-outline-primary" tabindex="-1" role="button" aria-disabled="true">グラフ詳細</a>
+      </p>
 
 {% for item in object_list %}
 <div class="alert alert-{{item.body_part}}" role="alert">

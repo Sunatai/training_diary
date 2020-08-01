@@ -37,7 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'td_app1',
+    'td_app1.apps.TdApp1Config',
     'bootstrap_datepicker_plus',
 ]
 
@@ -92,6 +92,7 @@ DATABASES = {
 
 
 
+
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
 
@@ -135,3 +136,6 @@ STATICFILES_DIRS = [
 ]
 
 LOGIN_URL = 'login'
+
+
+

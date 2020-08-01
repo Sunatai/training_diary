@@ -16,5 +16,6 @@ class TrainingDiaryModel(models.Model):
     date = models.DateField() #日付
     memo = models.TextField(blank=True, null=True, default='') #メモ
     author = models.CharField(max_length=100, null=True, default='')
+    memo1=models.CharField(max_length=100, null=True, default='') #メモ
     def __str__(self):
         return self.body_part
