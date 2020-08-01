@@ -1,3 +1,4 @@
+#コメント
 from django.urls import path
 from .views import DiaryList, DiaryDetail, DiaryCreate, DiaryDelete, DiaryUpdate, DiaryTest, signupfunc,loginfunc, listfunc, logoutfunc, hello_template
 from . import views
