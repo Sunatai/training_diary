@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 
 import os
 
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -23,9 +24,59 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '6env%f1-wnj$dty2+w-kyg+cpw6ap-b)0)gizp-b24p#+x9s^l'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+#許可するホスト名のリスト
+ALLOWED_HOSTS = [os.environ.get('ALLOWED_HOSTS')]
+
+#静的ファイルを配置する場所
+
+STATIC_ROOT = 'usr/share/nginx/html/static'
+MEDIA_ROOT = 'usr/share/nginx/html/media'
+
+#Amazon SES関連設定
+AWS_SES_ACCESS_KEY_ID = os.environ.get('AWS_SES_ACCESS_KEY_ID')
+AWS_SES_SECRET_ACCESS_KEY = os.environ.get('AWS_SES_SECRET_ACCESS_KEY')
+EMAIL_BACKEND = 'django_ses.SESBackend'
+
+#ロギング
+
+LOOGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+
+    'loggers':{
+        'django': {
+            'handlers':['file'],
+            'level':'INFO',
+        },
+        'diary':{
+            'handlers':['file'],
+            'level':'INFO',
+        },
+    },
+    'handlers':{
+        'file':{
+            'level':'INFO',
+            'class':'logging.handlers.TimedRotatingFileHandler',
+            'filename':os.path.join(BASE_DIR,'logs/djanog.log'),
+            'formatter':'prod',
+            'when':'D',
+            'interval':1,
+            'backupCount':7,
+        },
+    },
+    'formatters':{
+        'prod':{
+            'format':'\t'.join([
+                '%(asctime)s',
+                '[%(levelname)s]',
+                '%(pathname)s(Line:%(lineno)d)',
+                '%(message)s'
+            ])
+        },
+    }
+}
 
 
 # Application definition
@@ -39,6 +90,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'td_app1.apps.TdApp1Config',
     'bootstrap_datepicker_plus',
+
+    'django_ses',
 ]
 
 BOOTSTRAP4 = {

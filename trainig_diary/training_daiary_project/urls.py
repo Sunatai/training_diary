@@ -8,3 +8,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('td_app1.urls')),
 ]+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+
+
+#cssファイルを設定するときにやるやつ

@@ -5,6 +5,7 @@ from django.db import models
 BODY_PART = (('warning','胸'),('primary','背中'),('success','足'))
 
 class TrainingDiaryModel(models.Model):
+    id = models.IntegerField(primary_key=True)
     body_part = models.CharField( #部位
         max_length = 100,
         choices = BODY_PART
@@ -17,5 +18,10 @@ class TrainingDiaryModel(models.Model):
     memo = models.TextField(blank=True, null=True, default='') #メモ
     author = models.CharField(max_length=100, null=True, default='')
     memo1=models.CharField(max_length=100, null=True, default='') #メモ
+    memo2 = models.CharField(max_length=100, null=True, default='')
+    memo3 = models.CharField(max_length=100, null=True, default='')
+
+
+
     def __str__(self):
         return self.body_part
